@@ -5,6 +5,7 @@ import { ThemeProvider, createTheme, CssBaseline } from '@mui/material';
 import { store } from './store/store.tsx';
 import TripHistoryPage from './pages/trip-history.page';
 import SearchPage from "./pages/search.page.tsx";
+import ErrorPage from "./pages/error.page.tsx";
 
 const theme = createTheme({
   palette: {
@@ -48,7 +49,8 @@ const App: React.FC = () => {
             <Routes>
               <Route path="/" element={<Navigate to="/search" replace/>}/>
               <Route path="/search" element={<SearchPage />}/>
-              <Route path="/trips" element={<TripHistoryPage/>}/>
+              <Route path="/trips" element={<TripHistoryPage />}/>
+              <Route path="*" element={<ErrorPage />}/>
             </Routes>
           </BrowserRouter>
         </ThemeProvider>

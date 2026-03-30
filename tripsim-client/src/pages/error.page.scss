@@ -1,0 +1,68 @@
+@use '../styles/globals' as global;
+
+.err__root {
+  min-height: 100vh;
+  background: global.$bg-base;
+  color: global.$color-text;
+  font-family: global.$font-sora;
+
+  .err__content {
+    max-width: 640px;
+    margin: 24px 0;
+    margin-inline: auto;
+    padding: 0 16px 64px;
+
+    .err__nav {
+      display: flex;
+      flex-direction: row;
+      margin: 16px 0;
+      cursor: pointer;
+
+      .err__back-label {
+        line-height: 16px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        color: global.$color-text;
+        text-transform: uppercase;
+        align-self: center;
+      }
+    }
+
+    .err__empty {
+      margin-top: 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+
+      .err__empty-icon-wrapper {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background: #0E1220;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .err__empty-icon.MuiSvgIcon-root {
+          font-size: 28px !important;
+          color: global.$color-darker;
+        }
+      }
+
+      .err__empty-title {
+        font-family: global.$font-sora;
+        font-size: 15px;
+        font-weight: 600;
+        color: global.$color-dim;
+      }
+
+      .err__empty-description {
+        font-size: 12px;
+        color: global.$color-darker;
+      }
+    }
+  }
+}

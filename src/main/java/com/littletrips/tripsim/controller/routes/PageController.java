@@ -1,20 +1,22 @@
 package com.littletrips.tripsim.controller.routes;
 
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 
-@RestController
-@RequestMapping("/")
+@Controller
+@RequestMapping(value = "/", produces = MediaType.TEXT_HTML_VALUE)
 public class PageController {
 
-    @GetMapping
-    public String getLandingPage() throws IOException {
+    @GetMapping({"","search", "trips", "trips/"})
+    public ResponseEntity<String> getLandingPage(@RequestParam(required = false) String pan) throws IOException {
         ClassPathResource resource = new ClassPathResource("static/index.html");
-        return new String(resource.getInputStream().readAllBytes());
+        String html = new String(resource.getInputStream().readAllBytes());
+        return ResponseEntity.ok(html);
     }
 
 }
