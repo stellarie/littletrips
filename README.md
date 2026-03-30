@@ -48,12 +48,11 @@ The frontend is built with Vite and bundled into the Spring Boot app, so the pro
 - Frontend build integrated into the backend build
 - Single application deployment through Spring Boot static resources
 
-## Prerequisites
-
-Make sure you have installed:
+## Requirements
 
 - **Java 21**
-- **Node.js** and **npm**
+- **Node.js 18 or later**
+- **npm 9 or later**
 - **Gradle** via the included wrapper
 
 ## Getting Started
