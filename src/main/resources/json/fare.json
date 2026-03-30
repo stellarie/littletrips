@@ -1,0 +1,41 @@
+[
+  {
+    "StopID": "Stop1",
+    "Destinations": [
+      {
+        "StopID": "Stop2",
+        "Cost": 3.25
+      },
+      {
+        "StopID": "Stop3",
+        "Cost": 7.30
+      }
+    ]
+  },
+  {
+    "StopID": "Stop2",
+    "Destinations": [
+      {
+        "StopID": "Stop1",
+        "Cost": 3.25
+      },
+      {
+        "StopID": "Stop3",
+        "Cost": 5.50
+      }
+    ]
+  },
+  {
+    "StopID": "Stop3",
+    "Destinations": [
+      {
+        "StopID": "Stop1",
+        "Cost": 7.30
+      },
+      {
+        "StopID": "Stop2",
+        "Cost": 5.50
+      }
+    ]
+  }
+]

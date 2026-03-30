@@ -1,0 +1,122 @@
+@use "../styles/globals" as global;
+
+.search__wrapper {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: global.$bg;
+}
+
+.search__card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 500px;
+  background: global.$bg-base;
+  border: 1px solid global.$border;
+  border-radius: 24px;
+  padding: 40px 32px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+.search__title {
+  font-family: global.$font-sora;
+  font-weight: 700;
+  font-size: 28px;
+  color: global.$text;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.search__subtitle {
+  font-size: 12px !important;
+  color: global.$muted;
+  margin-bottom: 32px;
+}
+
+.search__input-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.search__input-wrapper {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 12px;
+    padding: 1px;
+    background: linear-gradient(145deg, global.$border, transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+.search__input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid global.$border;
+  border-radius: 12px;
+  padding: 16px 20px;
+  color: global.$text;
+  font-family: 'Fira Code', monospace;
+  font-size: 16px;
+  transition: all 0.2s ease;
+  outline: none;
+
+  &:focus {
+    border-color: rgba(global.$teal, 0.5);
+    background: rgba(global.$teal, 0.02);
+  }
+
+  &::placeholder {
+    color: rgba(global.$muted, 0.5);
+  }
+}
+
+.search__button {
+  width: 100%;
+  background: global.$teal;
+  color: #080b14;
+  border: none;
+  border-radius: 12px;
+  padding: 16px;
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 8px;
+
+  &:hover {
+    background: lighten(global.$teal, 5%);
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    filter: grayscale(1);
+  }
+}
+
+.search__hint {
+  margin-top: 16px;
+  font-size: 11px;
+  color: global.$muted;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}

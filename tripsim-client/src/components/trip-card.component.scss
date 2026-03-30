@@ -1,0 +1,192 @@
+@use '../styles/globals' as global;
+
+.tcc__container {
+  background: global.$bg;
+  border: 1px solid global.$border;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  position: relative;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.09);
+  }
+
+  .tcc__accent-strip {
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-color) 0%, transparent 100%);
+  }
+
+  .tcc__content {
+    padding: 18px 20px 14px 20px;
+
+    .tcc__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+
+      .tcc__bus-info {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+
+        .tcc__bus-icon {
+          font-size: 15px;
+          color: global.$orange;
+        }
+
+        .tcc__bus-label {
+          font-family: 'Sora', sans-serif;
+          font-weight: 700;
+          font-size: 10px;
+          letter-spacing: 0.14em;
+          color: global.$orange;
+          text-transform: uppercase;
+        }
+
+        .tcc__route-name {
+          font-size: 11px;
+          color: global.$muted;
+          margin-left: 2px;
+        }
+      }
+    }
+
+    .tcc__status-pill {
+      padding: 3px 10px;
+      border-radius: 20px;
+      border: 1px solid var(--accent-border);
+      background: var(--accent-bg);
+
+      .tcc__status-text {
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        color: var(--accent-color);
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .tcc__timeline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .tcc__time-block {
+      flex: 1;
+      min-width: 0;
+
+      &--right {
+        text-align: right;
+      }
+    }
+
+    .tcc__time-val {
+      font-family: 'Fira Code', monospace;
+      font-size: 20px;
+      font-weight: 600;
+      color: global.$text;
+      line-height: 1;
+
+      @media (min-width: 600px) {
+        font-size: 23px;
+      }
+
+      &--muted {
+        color: global.$muted;
+      }
+    }
+
+    .tcc__stop-id {
+      font-size: 11px;
+      color: global.$muted;
+      margin-top: 4px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .tcc__track {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+
+    .tcc__dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: global.$teal;
+      flex-shrink: 0;
+
+      &--end-incomplete {
+        background: transparent;
+        border: 1.5px dashed global.$muted;
+      }
+    }
+
+    .tcc__line {
+      width: 28px;
+      height: 1.5px;
+      background: linear-gradient(90deg, rgba(global.$teal, 0.56), rgba(global.$teal, 0.25));
+
+      @media (min-width: 600px) {
+        width: 44px;
+      }
+
+      &--incomplete {
+        background: repeating-linear-gradient(90deg, rgba(global.$muted, 0.5) 0 4px, transparent 4px 8px);
+      }
+    }
+  }
+
+  .tcc__divider {
+    position: relative;
+    margin: 0 20px;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #080b14;
+    }
+
+    &::before { left: -27px; }
+    &::after { right: -27px; }
+
+    .tcc__divider-line {
+      border-top: 1px dashed global.$border;
+      margin: 0;
+    }
+  }
+
+  .tcc__footer {
+    padding: 13px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .tcc__fare {
+      font-family: 'Fira Code', monospace;
+      font-size: 17px;
+      font-weight: 700;
+      color: global.$text;
+      letter-spacing: -0.01em;
+    }
+
+    .tcc__pan {
+      font-size: 12px;
+      color: global.$muted;
+      letter-spacing: 0.04em;
+      font-family: 'Fira Code', monospace;
+    }
+  }
+}

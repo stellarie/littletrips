@@ -1,0 +1,255 @@
+@use '../styles/globals' as global;
+
+.thp__root {
+  min-height: 100vh;
+  background: global.$bg-base;
+  color: global.$color-text;
+  font-family: global.$font-sora;
+
+  .thp__content {
+    max-width: 640px;
+    margin: 24px 0;
+    margin-inline: auto;
+    padding: 0 16px 64px;
+
+    .thp__nav {
+      display: flex;
+      flex-direction: row;
+      margin: 16px 0;
+      cursor: pointer;
+
+      .thp__back-label {
+        line-height: 16px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        color: global.$color-subtle;
+        text-transform: uppercase;
+        align-self: center;
+      }
+    }
+
+    @media (min-width: global.$bp-sm) {
+      padding-inline: 24px;
+    }
+
+    .thp__user-card {
+      display: flex;
+      margin-bottom: 4px;
+      flex-direction: column;
+      background: linear-gradient(135deg, #0E1220, #0A0D18);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 14px;
+      padding: 8px 16px;
+
+      .thp__user-card-content {
+        margin: 12px 0 12px;
+
+        .thp__card-label {
+          font-size: 9px;
+          font-weight: 700;
+          letter-spacing: 0.12em;
+          color: global.$color-muted;
+          text-transform: uppercase;
+        }
+
+        .thp__card-value {
+          font-family: global.$font-mono;
+          font-size: 24px;
+          font-weight: 700;
+          color: global.$color-text;
+        }
+      }
+    }
+
+    .thp__stats {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+      margin-bottom: 4px;
+
+      .thp__stat-card {
+        flex: 1;
+        background: linear-gradient(135deg, #0E1220, #0A0D18);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 14px;
+        padding: 14px 16px;
+
+        .thp__stat-card-label {
+          font-size: 9px;
+          font-weight: 700;
+          letter-spacing: 0.12em;
+          color: global.$color-muted;
+          text-transform: uppercase;
+        }
+
+        .thp__stat-card-value {
+          font-family: global.$font-mono;
+          font-size: 28px;
+          font-weight: 700;
+          color: global.$color-text;
+          line-height: 1.15;
+          margin-top: 4px;
+        }
+      }
+    }
+
+
+
+    .thp__error {
+      margin-top: 40px;
+      padding: 24px;
+      background: #150A0A;
+      border: 1px solid rgba(239, 68, 68, 0.18);
+      border-radius: 14px;
+      text-align: center;
+
+      .thp__error-title {
+        font-family: global.$font-sora;
+        font-size: 14px;
+        color: global.$color-error;
+        margin-bottom: 6px;
+      }
+
+      .thp__error-message {
+        font-size: 12px;
+        color: global.$color-subtle;
+        margin-bottom: 20px;
+      }
+
+      .thp__error-retry.MuiButton-root {
+        color: global.$color-accent;
+        border: 1px solid rgba(249, 115, 22, 0.3);
+        border-radius: 8px;
+        padding: 6px 20px;
+        font-family: global.$font-sora;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: none;
+
+        &:hover {
+          background: rgba(249, 115, 22, 0.07);
+        }
+
+        .thp__refresh-icon.MuiSvgIcon-root {
+          font-size: 16px !important;
+        }
+      }
+    }
+
+    .thp__skeletons {
+      margin-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      .thp__skeleton-row {
+        display: flex;
+        gap: 12px;
+
+        .thp__skeleton-stat.MuiSkeleton-root {
+          flex: 1;
+          border-radius: 14px !important;
+          background-color: rgba(255, 255, 255, 0.04) !important;
+        }
+
+        .thp__skeleton-trip.MuiSkeleton-root {
+          border-radius: 16px !important;
+          background-color: rgba(255, 255, 255, 0.04) !important;
+        }
+      }
+    }
+
+    .thp__empty {
+      margin-top: 80px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+
+      .thp__empty-icon-wrapper {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background: #0E1220;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .thp__empty-icon.MuiSvgIcon-root {
+          font-size: 28px !important;
+          color: global.$color-darker;
+        }
+      }
+
+      .thp__empty-title {
+        font-family: global.$font-sora;
+        font-size: 15px;
+        font-weight: 600;
+        color: global.$color-dim;
+      }
+
+      .thp__empty-description {
+        font-size: 12px;
+        color: global.$color-darker;
+      }
+    }
+
+    .thp__group {
+      margin-top: 28px;
+
+      .thp__date-header {
+        font-family: global.$font-sora;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: global.$color-muted;
+        margin-bottom: 12px;
+        position: sticky;
+        top: 56px;
+        background: global.$bg-base;
+        padding-top: 4px;
+        padding-bottom: 2px;
+        z-index: 10;
+
+        .thp__cards {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+      }
+    }
+
+    .thp__load-more {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .thp__load-more-btn.MuiButton-root {
+      font-family: global.$font-sora;
+      font-size: 12px;
+      font-weight: 600;
+      color: global.$color-accent;
+      border: 1px solid rgba(249, 115, 22, 0.25);
+      border-radius: 10px;
+      padding: 10px 32px;
+      text-transform: none;
+      letter-spacing: 0.02em;
+
+      &:hover {
+        background: rgba(249, 115, 22, 0.07);
+      }
+    }
+
+    .thp__spinner {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .thp__spinner-progress.MuiCircularProgress-root {
+      color: global.$color-accent;
+    }
+  }
+}

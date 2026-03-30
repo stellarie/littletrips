@@ -1,0 +1,29 @@
+[
+  {
+    "ID": 1,
+    "DateTimeUTC": "22-01-2026 13:00:00",
+    "TapType": "ON",
+    "StopId": "Stop1",
+    "CompanyId": "Company1",
+    "BusID": "Bus37",
+    "PAN": "5500005555555559"
+  },
+  {
+    "ID": 2,
+    "DateTimeUTC": "22-01-2026 13:05:00",
+    "TapType": "OFF",
+    "StopId": "Stop2",
+    "CompanyId": "Company1",
+    "BusID": "Bus37",
+    "PAN": "5500005555555559"
+  },
+  {
+    "ID": 3,
+    "DateTimeUTC": "23-01-2026 11:00:00",
+    "TapType": "ON",
+    "StopId": "Stop3",
+    "CompanyId": "Company1",
+    "BusID": "Bus07",
+    "PAN": "5500005555555559"
+  }
+]

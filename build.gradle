@@ -1,0 +1,60 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '4.0.5'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.littletrips'
+version = '0.0.1-SNAPSHOT'
+
+def frontendDir = "$projectDir/tripsim-client"
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-restclient'
+	implementation 'org.springframework.boot:spring-boot-starter-webmvc'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-restclient-test'
+	testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+
+tasks.register('installFrontend', Exec) {
+	workingDir frontendDir
+	commandLine 'npm', 'install', '--verbose'
+}
+
+tasks.register('buildFrontend', Exec) {
+	dependsOn 'installFrontend'
+	workingDir frontendDir
+	commandLine 'npm', 'run', 'build', '--verbose'
+}
+
+tasks.register('copyFrontendDist', Copy) {
+	dependsOn 'buildFrontend'
+	from "$frontendDir/dist"
+	into "$projectDir/src/main/resources/static"
+}
+
+processResources.dependsOn 'copyFrontendDist'
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
