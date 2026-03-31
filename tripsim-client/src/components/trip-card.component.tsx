@@ -32,11 +32,6 @@ const TripCard: React.FC<Props> = ({ trip }) => {
                     <Box className="tcc__bus-info">
                         <DirectionsBusIcon className="tcc__bus-icon" />
                         <Typography className="tcc__bus-label">Bus</Typography>
-                        {trip.routeName && (
-                            <Typography className="tcc__route-name">
-                                · {trip.routeName}
-                            </Typography>
-                        )}
                     </Box>
 
                     <Box className="tcc__status-pill">
