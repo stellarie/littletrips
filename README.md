@@ -75,7 +75,7 @@ As this app was originally built in Linux, there might be some conflicts when tr
 
 ```shell script
 git clone git@github.com:stellarie/littletrips.git
-cd tripsim
+cd littletrips
 ```
 
 
