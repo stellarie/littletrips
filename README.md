@@ -50,6 +50,11 @@ The frontend is built with Vite and bundled into the Spring Boot app, so the pro
 - Frontend build integrated into the backend build
 - Single application deployment through Spring Boot static resources
 
+## Assumptions and Limitations
+
+- The app assumes a single user and no authorization mechanism.
+- The app assumes a static (but modifiable outside runtime) JSON "database" in `/src/main/resources`.
+
 ## Requirements
 
 - **Java 21**
