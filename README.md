@@ -4,6 +4,9 @@ LittleTrips is a full-stack trip history simulation application built with a **S
 
 The frontend is built with Vite and bundled into the Spring Boot app, so the project can run as a single web application.
 
+Also, the app is fully responsive - it can be viewed through mobile or web.
+
+<img width="2429" height="987" alt="image" src="https://github.com/user-attachments/assets/c51ded1f-d4e9-4c8e-b070-098e9cc684a1" />
 <img width="456" height="901" alt="image" src="https://github.com/user-attachments/assets/25431160-30c3-4549-8d93-d134861e8c8d" />
 
 ## Tech Stack
