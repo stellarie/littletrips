@@ -6,8 +6,8 @@ The frontend is built with Vite and bundled into the Spring Boot app, so the pro
 
 The app is fully responsive and can be viewed on mobile and desktop.
 
-<img width="2429" height="987" alt="image" src="https://github.com/user-attachments/assets/c51ded1f-d4e9-4c8e-b070-098e9cc684a1" />
-<img width="456" height="901" alt="image" src="https://github.com/user-attachments/assets/25431160-30c3-4549-8d93-d134861e8c8d" />
+<img width="2429" height="987" alt="image" src="https://github.com/user-attachments/assets/d78b1d86-0420-4684-b3ff-517d94f13638" />
+<img width="412" height="884" alt="image" src="https://github.com/user-attachments/assets/dcf14424-6cd1-44c9-80c6-73825a30f238" />
 
 ## Tech Stack
 
