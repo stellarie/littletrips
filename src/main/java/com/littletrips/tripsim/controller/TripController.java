@@ -1,6 +1,7 @@
 package com.littletrips.tripsim.controller;
 
 import com.littletrips.tripsim.model.dto.Trip;
+import com.littletrips.tripsim.model.dto.TripHistory;
 import com.littletrips.tripsim.service.TripService;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,7 +17,7 @@ public class TripController {
     }
 
     @GetMapping("/{pan}/history")
-    public List<Trip> getTripHistoryByPAN(@PathVariable String pan) {
-        return tripService.getTripHistoryByPAN(pan);
+    public TripHistory getTripHistoryByPAN(@PathVariable String pan, @RequestParam(required = false) Integer page, @RequestParam(required = false) Integer size) {
+        return tripService.getTripHistoryByPAN(pan, page, size);
     }
 }

@@ -39,37 +39,29 @@ function groupByDate(trips: Trip[]): { label: string; trips: Trip[] }[] {
 const TripHistoryPage: React.FC = () => {
     const navigate = useNavigate();
     const params = new URLSearchParams(window.location.search);
-    const pan = params.get('pan');
+    const pan = params.get('pan') || "";
     const appDispatch = useAppDispatch();
-    const { items, loading, error } = useAppSelector((s) => s.trips);
+    const { items, loading, error, currentPage, total, pageSize, monthSpend, lifetimeSpend, thisMonthTrips } = useAppSelector((s) => s.trips);
     const { name } = useAppSelector((s) => s.user);
 
     useEffect(() => {
-        appDispatch(loadTrips(pan as String));
+        appDispatch(loadTrips({pan, currentPage: 1}));
         appDispatch(loadUser(pan as String));
     }, []);
 
     const grouped = useMemo(() => groupByDate(items), [items]);
-    const currency = 'AUD';
-
-    const thisMonthTrips = useMemo(
-        () => items.filter((t) => moment(t.Started).isSame(moment(), 'month')),
-        [items],
-    );
-
-    const monthSpend = thisMonthTrips.reduce((s, t) => s + t.ChargeAmount, 0);
-    const lifetimeSpend = items.reduce((s, t) => s + t.ChargeAmount, 0);
+    const hasMore = pageSize*currentPage < total;
 
     return (
         <Box className="thp__root">
-            <Header items={items} monthSpend={monthSpend} currency={currency} subtitle={"History"} />
+            <Header items={items} subtitle={"History"} currency="AUD" lifetimeSpend={lifetimeSpend} />
             <Box className="thp__content">
                 <Box className="thp__nav" onClick={()=>navigate("/")}>
                     <ArrowBack />&nbsp;
                     <Typography className="thp__back-label">Search</Typography>
                 </Box>
 
-                {items.length > 0 && (
+                {name && (
                     <>
                         <Box className="thp__user-card">
                             <Box className="thp__user-card-content">
@@ -80,15 +72,22 @@ const TripHistoryPage: React.FC = () => {
                                 <Typography className="thp__card-label">PAN</Typography>
                                 <Typography className="thp__card-value">{ pan }</Typography>
                             </Box>
-                            <Box className="thp__user-card-content">
-                                <Typography className="thp__card-label">Lifetime Spending</Typography>
-                                <Typography className="thp__card-value">{currency} { lifetimeSpend }</Typography>
-                            </Box>
                         </Box>
                         <Box className="thp__stats">
                             {[
-                                { label: 'All time trips', value: items.length },
-                                { label: 'Trips this month', value: thisMonthTrips.length },
+                                { label: 'All time trips', value: total },
+                                { label: 'Trips this month', value: thisMonthTrips },
+                            ].map(({ label, value }) => (
+                                <Box key={label} className="thp__stat-card">
+                                    <Typography className="thp__stat-card-label">{label}</Typography>
+                                    <Typography className="thp__stat-card-value">{value}</Typography>
+                                </Box>
+                            ))}
+                        </Box>
+                        <Box className="thp__stats">
+                            {[
+                                { label: 'Total Spent', value: `${lifetimeSpend}` },
+                                { label: 'Spent This Month', value: `${monthSpend}` },
                             ].map(({ label, value }) => (
                                 <Box key={label} className="thp__stat-card">
                                     <Typography className="thp__stat-card-label">{label}</Typography>
@@ -104,7 +103,7 @@ const TripHistoryPage: React.FC = () => {
                         <Typography className="thp__error-title">Failed to load trips</Typography>
                         <Typography className="thp__error-message">{error}</Typography>
                         <Button
-                            onClick={() => appDispatch(loadTrips(""))}
+                            onClick={() => appDispatch(loadTrips({pan, currentPage: currentPage + 1}))}
                             startIcon={<RefreshIcon className="thp__refresh-icon" />}
                             className="thp__error-retry"
                         >
@@ -148,6 +147,12 @@ const TripHistoryPage: React.FC = () => {
                     </Box>
                 )}
 
+                {
+                    items.length > 0 && (
+                        <Typography className="thp__history-label">Passenger History</Typography>
+                    )
+                }
+
                 {grouped.map(({ label, trips }) => (
                     <Box key={label} className="thp__group">
                         <Typography className="thp__date-header">{label}</Typography>
@@ -158,6 +163,29 @@ const TripHistoryPage: React.FC = () => {
                         </Box>
                     </Box>
                 ))}
+
+                {!loading && (
+                    <>
+                        <Box sx={{ mt: 5, textAlign: 'center' }}>
+                            {currentPage - 1 != 0 &&
+                                <Button
+                                    onClick={() => appDispatch(loadTrips({pan, currentPage: currentPage - 1}))}
+                                    className="thp__load-more-btn"
+                                >
+                                    Previous Page
+                                </Button>
+                            }
+                            {hasMore &&
+                                <Button
+                                    onClick={() => appDispatch(loadTrips({pan, currentPage: currentPage + 1}))}
+                                    className="thp__load-more-btn"
+                                >
+                                    Next Page
+                                </Button>
+                            }
+                        </Box>
+                    </>
+                )}
 
                 {loading && items.length > 0 && (
                     <Box className="thp__spinner">

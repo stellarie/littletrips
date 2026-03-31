@@ -11,7 +11,7 @@ const Header = (props: {
     subtitle?: string,
 }) => {
     const navigate = useNavigate();
-    const { items, currency, monthSpend, subtitle } = props;
+    const { items, currency, lifetimeSpend, subtitle } = props;
     return (
         <Box component="header" className="header">
             <Box className="header__logo-box">
@@ -23,9 +23,9 @@ const Header = (props: {
 
             {items && items.length > 0 && (
                 <Box className="header__month-spend">
-                    <Typography className="header__month-spend-label">This Month's Spending</Typography>
+                    <Typography className="header__month-spend-label">Total Spent</Typography>
                     <Typography className="header__month-spend-value">
-                        {currency}&nbsp;{monthSpend && monthSpend.toFixed(2)}
+                        {currency}&nbsp;{ lifetimeSpend && lifetimeSpend.toFixed(2)}
                     </Typography>
                 </Box>
             )}

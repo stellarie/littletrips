@@ -5,9 +5,13 @@ import type { TripsResponse } from '../types/trip';
 import {initialTripState, initialUserState} from "./defs.tsx";
 import {User} from "../types/user.tsx";
 
-export const loadTrips = createAsyncThunk<TripsResponse, String>(
+interface LoadTripsArgs {
+    pan: string;
+    currentPage: number;
+}
+export const loadTrips = createAsyncThunk<TripsResponse, LoadTripsArgs>(
     'trips/load',
-    (pan) => fetchTrips(pan),
+    (args) => fetchTrips(args.pan, args.currentPage),
 );
 
 export const loadUser = createAsyncThunk<User, String>(
@@ -27,7 +31,13 @@ const tripsSlice = createSlice({
             })
             .addCase(loadTrips.fulfilled, (s, { payload }) => {
                 s.loading = false;
-                s.items = payload
+                s.items = payload.Trips;
+                s.total = payload.Total;
+                s.currentPage = payload.Page;
+                s.pageSize = payload.PageSize;
+                s.monthSpend = payload.MonthSpend;
+                s.lifetimeSpend = payload.LifetimeSpend;
+                s.thisMonthTrips = payload.MonthTripCount;
             })
             .addCase(loadTrips.rejected, (s, a) => {
                 s.loading = false;

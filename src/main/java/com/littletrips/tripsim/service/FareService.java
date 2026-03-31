@@ -30,7 +30,6 @@ public class FareService {
             }
         }
 
-        // TODO: make this an exception
         return 0;
     }
 
@@ -45,7 +44,6 @@ public class FareService {
             }
         }
 
-        // TODO: make this an exception
         return 0;
     }
 }

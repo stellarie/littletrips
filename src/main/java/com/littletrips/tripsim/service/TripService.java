@@ -4,13 +4,17 @@ import com.littletrips.tripsim.enums.Status;
 import com.littletrips.tripsim.enums.TapType;
 import com.littletrips.tripsim.model.dto.Transaction;
 import com.littletrips.tripsim.model.dto.Trip;
+import com.littletrips.tripsim.model.dto.TripHistory;
 import com.littletrips.tripsim.service.db.TransactionLoader;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class TripService {
@@ -22,7 +26,7 @@ public class TripService {
         this.fareService = fareService;
     }
 
-    public List<Trip> getTripHistoryByPAN(String pan) {
+    public TripHistory getTripHistoryByPAN(String pan, Integer page, Integer size) {
         List<Transaction> userTransactions = transactionLoader.getTransactions().stream().filter(txn -> txn.pan().equals(pan)).toList();
 
         // construct trips object one-by-one
@@ -60,7 +64,23 @@ public class TripService {
                 ));
             }
         });
-        return userTrips;
+
+        // if size is null, then return all trips
+        if (Objects.isNull(size)) {
+            return new TripHistory(userTrips, userTrips.size(), 1, userTrips.size(), getMonthSpending(userTrips), getLifetimeSpending(userTrips), getMonthTripCount(userTrips));
+        }
+
+        // else, divide the trips into pages of n size, and return the page given in the arg
+        // page index starts with 1
+        int startIndex = (page - 1) * size;
+        int endIndex = Math.min(startIndex + size, userTrips.size());
+
+        if (startIndex >= userTrips.size() || startIndex < 0) {
+            return new TripHistory(new ArrayList<>(), 0, 1, 0, 0, 0, 0);
+        }
+
+        List<Trip> tripSubList = userTrips.subList(startIndex, endIndex);
+        return new TripHistory(tripSubList, userTrips.size(), page, tripSubList.size(), getMonthSpending(userTrips), getLifetimeSpending(userTrips), getMonthTripCount(userTrips));
     }
 
     private Transaction findMatchingTransaction (Transaction initialTransaction, List<Transaction> transactions) {
@@ -80,5 +100,26 @@ public class TripService {
                         txn -> initialTransaction.busId().equals(txn.busId()) && initialTransaction.companyId().equals(txn.companyId()) && txn.tapType().equals(TapType.OFF)
                 ).findFirst()
                 .orElse(null);
+    }
+
+    private int getMonthTripCount (List<Trip> trips) {
+        return trips.stream()
+                .filter(t -> t.startTime().getMonth() == LocalDateTime.now().getMonth() && t.startTime().getYear() == LocalDateTime.now().getYear())
+                .toList()
+                .size();
+    }
+    private double getMonthSpending (List<Trip> trips) {
+        List<Trip> monthTrips = trips.stream()
+                .filter(t -> t.startTime().getMonth() == LocalDateTime.now().getMonth() && t.startTime().getYear() == LocalDateTime.now().getYear())
+                .toList();
+        return monthTrips.stream()
+                .map(Trip::chargeAmount)
+                .reduce(0.0, Double::sum);
+    }
+
+    private double getLifetimeSpending (List<Trip> trips) {
+        return trips.stream()
+                .map(Trip::chargeAmount)
+                .reduce(0.0, Double::sum);
     }
 }

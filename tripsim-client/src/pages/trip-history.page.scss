@@ -85,7 +85,7 @@
 
         .thp__stat-card-value {
           font-family: global.$font-mono;
-          font-size: 28px;
+          font-size: 24px;
           font-weight: 700;
           color: global.$color-text;
           line-height: 1.15;
@@ -196,6 +196,14 @@
       }
     }
 
+    .thp__history-label {
+      font-family: global.$font-sora;
+      font-size: 22px;
+      font-weight: 600;
+      color: global.$color-subtle;
+      margin-top: 28px;
+    }
+
     .thp__group {
       margin-top: 28px;
 
@@ -237,6 +245,7 @@
       padding: 10px 32px;
       text-transform: none;
       letter-spacing: 0.02em;
+      margin: 0px 12px;
 
       &:hover {
         background: rgba(249, 115, 22, 0.07);

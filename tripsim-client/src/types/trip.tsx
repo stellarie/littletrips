@@ -12,6 +12,12 @@ export interface Trip {
     Status: TripStatus;
 }
 
-export interface TripsResponse extends Array<Trip> {
-    [index: number]: Trip
+export interface TripsResponse {
+    Trips: Array<Trip>;
+    Total: number;
+    Page: number;
+    PageSize: number;
+    LifetimeSpend: number;
+    MonthSpend: number;
+    MonthTripCount: number;
 }
