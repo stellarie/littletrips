@@ -8,7 +8,6 @@ export interface Trip {
     ToStopId: string | null;
     ChargeAmount: number;
     PAN: string;
-    routeName?: string;
     Status: TripStatus;
 }
 
