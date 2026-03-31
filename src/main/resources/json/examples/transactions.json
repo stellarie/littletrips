@@ -1,0 +1,347 @@
+[
+  {
+    "ID": 1,
+    "DateTimeUTC": "29-03-2026 08:00:00",
+    "TapType": "ON",
+    "StopId": "Stop_A1",
+    "CompanyId": "MetroTransit",
+    "BusID": "Bus_101",
+    "PAN": "5500005555551111"
+  },
+  {
+    "ID": 2,
+    "DateTimeUTC": "29-03-2026 08:25:00",
+    "TapType": "OFF",
+    "StopId": "Stop_B4",
+    "CompanyId": "MetroTransit",
+    "BusID": "Bus_101",
+    "PAN": "5500005555551111"
+  },
+  {
+    "ID": 3,
+    "DateTimeUTC": "29-03-2026 17:10:00",
+    "TapType": "ON",
+    "StopId": "Stop_B4",
+    "CompanyId": "MetroTransit",
+    "BusID": "Bus_102",
+    "PAN": "5500005555551111"
+  },
+  {
+    "ID": 4,
+    "DateTimeUTC": "29-03-2026 17:35:00",
+    "TapType": "OFF",
+    "StopId": "Stop_A1",
+    "CompanyId": "MetroTransit",
+    "BusID": "Bus_102",
+    "PAN": "5500005555551111"
+  },
+  {
+    "ID": 5,
+    "DateTimeUTC": "30-03-2026 08:05:00",
+    "TapType": "ON",
+    "StopId": "Stop_A1",
+    "CompanyId": "MetroTransit",
+    "BusID": "Bus_105",
+    "PAN": "5500005555551111"
+  },
+  {
+    "ID": 6,
+    "DateTimeUTC": "30-03-2026 08:30:00",
+    "TapType": "OFF",
+    "StopId": "Stop_B4",
+    "CompanyId": "MetroTransit",
+    "BusID": "Bus_105",
+    "PAN": "5500005555551111"
+  },
+  {
+    "ID": 7,
+    "DateTimeUTC": "29-03-2026 09:15:00",
+    "TapType": "ON",
+    "StopId": "Stop_C2",
+    "CompanyId": "CityLink",
+    "BusID": "Bus_50",
+    "PAN": "5500005555552222"
+  },
+  {
+    "ID": 8,
+    "DateTimeUTC": "29-03-2026 09:40:00",
+    "TapType": "OFF",
+    "StopId": "Stop_D9",
+    "CompanyId": "CityLink",
+    "BusID": "Bus_50",
+    "PAN": "5500005555552222"
+  },
+  {
+    "ID": 9,
+    "DateTimeUTC": "30-03-2026 12:00:00",
+    "TapType": "ON",
+    "StopId": "Stop_D9",
+    "CompanyId": "CityLink",
+    "BusID": "Bus_55",
+    "PAN": "5500005555552222"
+  },
+  {
+    "ID": 10,
+    "DateTimeUTC": "30-03-2026 12:20:00",
+    "TapType": "OFF",
+    "StopId": "Stop_E1",
+    "CompanyId": "CityLink",
+    "BusID": "Bus_55",
+    "PAN": "5500005555552222"
+  },
+  {
+    "ID": 11,
+    "DateTimeUTC": "31-03-2026 15:00:00",
+    "TapType": "ON",
+    "StopId": "Stop_E1",
+    "CompanyId": "CityLink",
+    "BusID": "Bus_60",
+    "PAN": "5500005555552222"
+  },
+  {
+    "ID": 12,
+    "DateTimeUTC": "31-03-2026 15:45:00",
+    "TapType": "OFF",
+    "StopId": "Stop_C2",
+    "CompanyId": "CityLink",
+    "BusID": "Bus_60",
+    "PAN": "5500005555552222"
+  },
+  {
+    "ID": 13,
+    "DateTimeUTC": "29-03-2026 07:00:00",
+    "TapType": "ON",
+    "StopId": "Stop_Z1",
+    "CompanyId": "ExpressWay",
+    "BusID": "Bus_200",
+    "PAN": "5500005555553333"
+  },
+  {
+    "ID": 14,
+    "DateTimeUTC": "29-03-2026 07:45:00",
+    "TapType": "OFF",
+    "StopId": "Stop_Z10",
+    "CompanyId": "ExpressWay",
+    "BusID": "Bus_200",
+    "PAN": "5500005555553333"
+  },
+  {
+    "ID": 15,
+    "DateTimeUTC": "30-03-2026 07:05:00",
+    "TapType": "ON",
+    "StopId": "Stop_Z1",
+    "CompanyId": "ExpressWay",
+    "BusID": "Bus_201",
+    "PAN": "5500005555553333"
+  },
+  {
+    "ID": 16,
+    "DateTimeUTC": "30-03-2026 07:50:00",
+    "TapType": "OFF",
+    "StopId": "Stop_Z10",
+    "CompanyId": "ExpressWay",
+    "BusID": "Bus_201",
+    "PAN": "5500005555553333"
+  },
+  {
+    "ID": 17,
+    "DateTimeUTC": "31-03-2026 16:30:00",
+    "TapType": "ON",
+    "StopId": "Stop_Z10",
+    "CompanyId": "ExpressWay",
+    "BusID": "Bus_205",
+    "PAN": "5500005555553333"
+  },
+  {
+    "ID": 18,
+    "DateTimeUTC": "31-03-2026 17:15:00",
+    "TapType": "OFF",
+    "StopId": "Stop_Z1",
+    "CompanyId": "ExpressWay",
+    "BusID": "Bus_205",
+    "PAN": "5500005555553333"
+  },
+  {
+    "ID": 19,
+    "DateTimeUTC": "01-04-2026 08:00:00",
+    "TapType": "ON",
+    "StopId": "Stop_Z1",
+    "CompanyId": "ExpressWay",
+    "BusID": "Bus_200",
+    "PAN": "5500005555553333"
+  },
+  {
+    "ID": 20,
+    "DateTimeUTC": "01-04-2026 08:45:00",
+    "TapType": "OFF",
+    "StopId": "Stop_Z10",
+    "CompanyId": "ExpressWay",
+    "BusID": "Bus_200",
+    "PAN": "5500005555553333"
+  },
+  {
+    "ID": 21,
+    "DateTimeUTC": "30-03-2026 10:00:00",
+    "TapType": "ON",
+    "StopId": "Stop_S1",
+    "CompanyId": "CoastBus",
+    "BusID": "Bus_77",
+    "PAN": "5500005555554444"
+  },
+  {
+    "ID": 22,
+    "DateTimeUTC": "30-03-2026 10:20:00",
+    "TapType": "OFF",
+    "StopId": "Stop_S5",
+    "CompanyId": "CoastBus",
+    "BusID": "Bus_77",
+    "PAN": "5500005555554444"
+  },
+  {
+    "ID": 23,
+    "DateTimeUTC": "31-03-2026 14:00:00",
+    "TapType": "ON",
+    "StopId": "Stop_S5",
+    "CompanyId": "CoastBus",
+    "BusID": "Bus_88",
+    "PAN": "5500005555554444"
+  },
+  {
+    "ID": 24,
+    "DateTimeUTC": "31-03-2026 14:25:00",
+    "TapType": "OFF",
+    "StopId": "Stop_S1",
+    "CompanyId": "CoastBus",
+    "BusID": "Bus_88",
+    "PAN": "5500005555554444"
+  },
+  {
+    "ID": 25,
+    "DateTimeUTC": "01-04-2026 09:30:00",
+    "TapType": "ON",
+    "StopId": "Stop_S1",
+    "CompanyId": "CoastBus",
+    "BusID": "Bus_77",
+    "PAN": "5500005555554444"
+  },
+  {
+    "ID": 26,
+    "DateTimeUTC": "01-04-2026 09:55:00",
+    "TapType": "OFF",
+    "StopId": "Stop_S5",
+    "CompanyId": "CoastBus",
+    "BusID": "Bus_77",
+    "PAN": "5500005555554444"
+  },
+  {
+    "ID": 27,
+    "DateTimeUTC": "29-03-2026 11:00:00",
+    "TapType": "ON",
+    "StopId": "Stop_North",
+    "CompanyId": "MetroTransit",
+    "BusID": "Bus_12",
+    "PAN": "5500005555555555"
+  },
+  {
+    "ID": 28,
+    "DateTimeUTC": "29-03-2026 11:30:00",
+    "TapType": "OFF",
+    "StopId": "Stop_South",
+    "CompanyId": "MetroTransit",
+    "BusID": "Bus_12",
+    "PAN": "5500005555555555"
+  },
+  {
+    "ID": 29,
+    "DateTimeUTC": "30-03-2026 18:00:00",
+    "TapType": "ON",
+    "StopId": "Stop_South",
+    "CompanyId": "MetroTransit",
+    "BusID": "Bus_14",
+    "PAN": "5500005555555555"
+  },
+  {
+    "ID": 30,
+    "DateTimeUTC": "30-03-2026 18:35:00",
+    "TapType": "OFF",
+    "StopId": "Stop_North",
+    "CompanyId": "MetroTransit",
+    "BusID": "Bus_14",
+    "PAN": "5500005555555555"
+  },
+  {
+    "ID": 31,
+    "DateTimeUTC": "01-04-2026 07:45:00",
+    "TapType": "ON",
+    "StopId": "Stop_North",
+    "CompanyId": "MetroTransit",
+    "BusID": "Bus_12",
+    "PAN": "5500005555555555"
+  },
+  {
+    "ID": 32,
+    "DateTimeUTC": "01-04-2026 08:15:00",
+    "TapType": "OFF",
+    "StopId": "Stop_South",
+    "CompanyId": "MetroTransit",
+    "BusID": "Bus_12",
+    "PAN": "5500005555555555"
+  },
+  {
+    "ID": 33,
+    "DateTimeUTC": "01-04-2026 14:00:00",
+    "TapType": "ON",
+    "StopId": "Stop_A1",
+    "CompanyId": "MetroTransit",
+    "BusID": "Bus_101",
+    "PAN": "5500005555551111"
+  },
+  {
+    "Note": "Sarah Jenkins: Incomplete Trip (No Tap Out)",
+    "ID": 34,
+    "DateTimeUTC": "01-04-2026 10:15:00",
+    "TapType": "ON",
+    "StopId": "Stop_C2",
+    "CompanyId": "CityLink",
+    "BusID": "Bus_50",
+    "PAN": "5500005555552222"
+  },
+  {
+    "ID": 35,
+    "DateTimeUTC": "01-04-2026 10:17:00",
+    "TapType": "OFF",
+    "StopId": "Stop_C2",
+    "CompanyId": "CityLink",
+    "BusID": "Bus_50",
+    "PAN": "5500005555552222"
+  },
+  {
+    "Note": "Marcus Thorne: Cancelled Trip (Same Stop)",
+    "ID": 36,
+    "DateTimeUTC": "01-04-2026 17:30:00",
+    "TapType": "ON",
+    "StopId": "Stop_Z1",
+    "CompanyId": "ExpressWay",
+    "BusID": "Bus_205",
+    "PAN": "5500005555553333"
+  },
+  {
+    "Note": "Elena Rodriguez: Incomplete Trip (No Tap Out)",
+    "ID": 37,
+    "DateTimeUTC": "01-04-2026 11:05:00",
+    "TapType": "ON",
+    "StopId": "Stop_S1",
+    "CompanyId": "CoastBus",
+    "BusID": "Bus_77",
+    "PAN": "5500005555554444"
+  },
+  {
+    "ID": 38,
+    "DateTimeUTC": "01-04-2026 11:06:00",
+    "TapType": "OFF",
+    "StopId": "Stop_S1",
+    "CompanyId": "CoastBus",
+    "BusID": "Bus_77",
+    "PAN": "5500005555554444"
+  }
+]

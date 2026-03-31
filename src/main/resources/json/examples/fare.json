@@ -1,0 +1,75 @@
+[
+  {
+    "StopID": "Stop_A1",
+    "Destinations": [
+      { "StopID": "Stop_B4", "Cost": 2.75 },
+      { "StopID": "Stop_North", "Cost": 4.25 },
+      { "StopID": "Stop_South", "Cost": 5.50 }
+    ]
+  },
+  {
+    "StopID": "Stop_B4",
+    "Destinations": [
+      { "StopID": "Stop_A1", "Cost": 2.75 }
+    ]
+  },
+  {
+    "StopID": "Stop_C2",
+    "Destinations": [
+      { "StopID": "Stop_D9", "Cost": 3.10 },
+      { "StopID": "Stop_E1", "Cost": 5.20 }
+    ]
+  },
+  {
+    "StopID": "Stop_D9",
+    "Destinations": [
+      { "StopID": "Stop_C2", "Cost": 3.10 },
+      { "StopID": "Stop_E1", "Cost": 2.45 }
+    ]
+  },
+  {
+    "StopID": "Stop_E1",
+    "Destinations": [
+      { "StopID": "Stop_C2", "Cost": 5.20 },
+      { "StopID": "Stop_D9", "Cost": 2.45 }
+    ]
+  },
+  {
+    "StopID": "Stop_Z1",
+    "Destinations": [
+      { "StopID": "Stop_Z10", "Cost": 8.50 }
+    ]
+  },
+  {
+    "StopID": "Stop_Z10",
+    "Destinations": [
+      { "StopID": "Stop_Z1", "Cost": 8.50 }
+    ]
+  },
+  {
+    "StopID": "Stop_S1",
+    "Destinations": [
+      { "StopID": "Stop_S5", "Cost": 3.75 }
+    ]
+  },
+  {
+    "StopID": "Stop_S5",
+    "Destinations": [
+      { "StopID": "Stop_S1", "Cost": 3.75 }
+    ]
+  },
+  {
+    "StopID": "Stop_North",
+    "Destinations": [
+      { "StopID": "Stop_South", "Cost": 4.50 },
+      { "StopID": "Stop_A1", "Cost": 4.25 }
+    ]
+  },
+  {
+    "StopID": "Stop_South",
+    "Destinations": [
+      { "StopID": "Stop_North", "Cost": 4.50 },
+      { "StopID": "Stop_A1", "Cost": 5.50 }
+    ]
+  }
+]
