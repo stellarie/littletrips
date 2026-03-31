@@ -4,6 +4,8 @@ LittleTrips is a full-stack trip history simulation application built with a **S
 
 The frontend is built with Vite and bundled into the Spring Boot app, so the project can run as a single web application.
 
+<img width="456" height="901" alt="image" src="https://github.com/user-attachments/assets/25431160-30c3-4549-8d93-d134861e8c8d" />
+
 ## Tech Stack
 
 ### Backend
@@ -167,7 +169,6 @@ Run the backend test suite with:
 ```shell script
 ./gradlew test
 ```
-
 
 ## License
 
