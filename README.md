@@ -57,6 +57,7 @@ The app is fully responsive and can be viewed on mobile and desktop.
 
 - The app assumes a single user and no authorization mechanism.
 - The app assumes a static (but modifiable outside runtime) JSON "database" in `/src/main/resources`.
+- The app was built in Linux and may have some conflicts with certain commands when trying to build in Windows. The web app should not be affected - just the build.
 
 ## Requirements
 
