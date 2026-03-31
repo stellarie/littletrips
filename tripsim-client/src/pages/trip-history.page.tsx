@@ -54,7 +54,7 @@ const TripHistoryPage: React.FC = () => {
 
     return (
         <Box className="thp__root">
-            <Header items={items} subtitle={"History"} currency="AUD" lifetimeSpend={lifetimeSpend} />
+            <Header items={items} subtitle={"Trip History"} currency="AUD" lifetimeSpend={lifetimeSpend} />
             <Box className="thp__content">
                 <Box className="thp__nav" onClick={()=>navigate("/")}>
                     <ArrowBack />&nbsp;
