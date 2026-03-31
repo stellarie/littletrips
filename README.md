@@ -64,6 +64,9 @@ The frontend is built with Vite and bundled into the Spring Boot app, so the pro
 
 ## Getting Started
 
+### Note
+As this app was originally built in Linux, there might be some conflicts when trying to build in Windows. If you encounter any issue, please reach out to the maintainer (me).
+
 ### 1. Clone the repository
 
 ```shell script
