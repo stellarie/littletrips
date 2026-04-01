@@ -297,7 +297,6 @@
     "PAN": "5500005555551111"
   },
   {
-    "Note": "Sarah Jenkins: Incomplete Trip (No Tap Out)",
     "ID": 34,
     "DateTimeUTC": "01-04-2026 10:15:00",
     "TapType": "ON",
@@ -316,7 +315,6 @@
     "PAN": "5500005555552222"
   },
   {
-    "Note": "Marcus Thorne: Cancelled Trip (Same Stop)",
     "ID": 36,
     "DateTimeUTC": "01-04-2026 17:30:00",
     "TapType": "ON",
@@ -326,7 +324,6 @@
     "PAN": "5500005555553333"
   },
   {
-    "Note": "Elena Rodriguez: Incomplete Trip (No Tap Out)",
     "ID": 37,
     "DateTimeUTC": "01-04-2026 11:05:00",
     "TapType": "ON",
