@@ -7,7 +7,7 @@ plugins {
 group = 'com.littletrips'
 version = '0.0.1-SNAPSHOT'
 
-def frontendDir = "$projectDir/tripsim-client"
+def frontendDir = "$projectDir/littletrips-client"
 
 java {
 	toolchain {

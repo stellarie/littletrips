@@ -37,5 +37,5 @@ out/
 ### VS Code ###
 .vscode/
 
-/tripsim-client/node_modules/
-/tripsim-client/dist/
+/littletrips-client/node_modules/
+/littletrips-client/dist/
