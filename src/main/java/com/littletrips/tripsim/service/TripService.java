@@ -27,15 +27,19 @@ public class TripService {
     }
 
     public TripHistory getTripHistoryByPAN(String pan, Integer page, Integer size) {
-        List<Transaction> userTransactions = transactionLoader.getTransactions().stream().filter(txn -> txn.pan().equals(pan)).toList();
+        List<Transaction> userTransactions = transactionLoader.getTransactions().stream()
+                .filter(txn -> txn.pan().equals(pan))
+                .sorted(Comparator.comparing(Transaction::dateTimeUTC))
+                .toList();
 
-        // construct trips object one-by-one
         List<Trip> userTrips = new ArrayList<>();
+
         userTransactions.forEach(txn -> {
-            Transaction matchingTxn = findMatchingTransaction(txn, userTransactions);
             if (txn.tapType().equals(TapType.OFF)) {
                 return;
             }
+
+            Transaction matchingTxn = findMatchingTransaction(txn, userTransactions);
             if (matchingTxn != null) {
                 userTrips.add(new Trip(
                         txn.dateTimeUTC(),
@@ -65,40 +69,37 @@ public class TripService {
             }
         });
 
-        // if size is null, then return all trips
+        userTrips.sort(Comparator.comparing(Trip::startTime).reversed());
+
         if (Objects.isNull(size)) {
-            return new TripHistory(userTrips, userTrips.size(), 1, userTrips.size(), getMonthSpending(userTrips), getLifetimeSpending(userTrips), getMonthTripCount(userTrips));
+            return new TripHistory(userTrips, userTrips.size(), 1, userTrips.size(),
+                    getMonthSpending(userTrips), getLifetimeSpending(userTrips), getMonthTripCount(userTrips));
         }
 
-        // else, divide the trips into pages of n size, and return the page given in the arg
-        // page index starts with 1
         int startIndex = (page - 1) * size;
         int endIndex = Math.min(startIndex + size, userTrips.size());
 
         if (startIndex >= userTrips.size() || startIndex < 0) {
-            return new TripHistory(new ArrayList<>(), 0, 1, 0, 0, 0, 0);
+            return new TripHistory(new ArrayList<>(), userTrips.size(), page, size, 0, 0, 0);
         }
 
         List<Trip> tripSubList = userTrips.subList(startIndex, endIndex);
-        return new TripHistory(tripSubList, userTrips.size(), page, tripSubList.size(), getMonthSpending(userTrips), getLifetimeSpending(userTrips), getMonthTripCount(userTrips));
+        return new TripHistory(tripSubList, userTrips.size(), page, size,
+                getMonthSpending(userTrips), getLifetimeSpending(userTrips), getMonthTripCount(userTrips));
     }
 
-    private Transaction findMatchingTransaction (Transaction initialTransaction, List<Transaction> transactions) {
-        if (initialTransaction.tapType().equals(TapType.OFF)) {
+    private Transaction findMatchingTransaction(Transaction initialTransaction, List<Transaction> transactions) {
+        if (initialTransaction.tapType() != TapType.ON) {
             return null;
         }
 
-        // sort transactions by date and time first
-        List<Transaction> sortedTransactions = transactions
-                .stream()
-                .sorted(Comparator.comparing(Transaction::dateTimeUTC))
-                .toList();
-
-        return sortedTransactions
-                .stream()
-                .filter(
-                        txn -> initialTransaction.busId().equals(txn.busId()) && initialTransaction.companyId().equals(txn.companyId()) && txn.tapType().equals(TapType.OFF)
-                ).findFirst()
+        return transactions.stream()
+                .filter(txn -> txn.pan().equals(initialTransaction.pan()))
+                .filter(txn -> txn.tapType() == TapType.OFF)
+                .filter(txn -> txn.busId().equals(initialTransaction.busId()))
+                .filter(txn -> txn.companyId().equals(initialTransaction.companyId()))
+                .filter(txn -> txn.dateTimeUTC().isAfter(initialTransaction.dateTimeUTC()))
+                .min(Comparator.comparing(Transaction::dateTimeUTC))
                 .orElse(null);
     }
 
