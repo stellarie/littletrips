@@ -41,7 +41,7 @@ The app is fully responsive and can be viewed on mobile and desktop.
 │   │       ├── json/           # Local data files
 │   │       └── static/         # Built frontend output
 │   └── test/                   # Backend tests
-└── tripsim-client/             # React + TypeScript frontend
+└── littletrips-client/         # React + TypeScript frontend
 ```
 
 
@@ -101,7 +101,7 @@ http://localhost:8080
 #### Option B: Run the frontend separately during development
 
 ```shell script
-cd tripsim-client
+cd littletrips-client
 npm install
 npm run start
 ```
@@ -129,7 +129,7 @@ The Gradle build will:
 
 ## Frontend Scripts
 
-Inside `tripsim-client/`, the available npm scripts are:
+Inside `littletrips-client/`, the available npm scripts are:
 
 ```shell script
 npm run start    # Start Vite dev server
